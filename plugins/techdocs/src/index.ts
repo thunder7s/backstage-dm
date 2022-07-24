@@ -20,13 +20,7 @@
  * @packageDocumentation
  */
 
-import {
-  TechDocsEntityMetadata,
-  TechDocsMetadata,
-} from '@backstage/plugin-techdocs-react';
-
 export * from './types';
-export * from './api';
 export * from './client';
 export * from './reader';
 export * from './search';
@@ -42,21 +36,43 @@ export {
 } from './plugin';
 export * from './Router';
 
-/**
- * @deprecated Import from `@backstage/plugin-techdocs-react` instead
- *
- * @public
- */
-type DeprecatedTechDocsMetadata = TechDocsMetadata;
-
-/**
- * @deprecated Import from `@backstage/plugin-techdocs-react` instead
- *
- * @public
- */
-type DeprecatedTechDocsEntityMetadata = TechDocsEntityMetadata;
+export {
+  /**
+   * @deprecated Import from `@backstage/plugin-techdocs-react` instead
+   * @public
+   */
+  techdocsApiRef,
+  /**
+   * @deprecated Import from `@backstage/plugin-techdocs-react` instead
+   * @public
+   */
+  techdocsStorageApiRef,
+} from '@backstage/plugin-techdocs-react';
 
 export type {
-  DeprecatedTechDocsEntityMetadata as TechDocsEntityMetadata,
-  DeprecatedTechDocsMetadata as TechDocsMetadata,
-};
+  /**
+   * @deprecated Import from `@backstage/plugin-techdocs-react` instead
+   * @public
+   */
+  SyncResult,
+  /**
+   * @deprecated Import from `@backstage/plugin-techdocs-react` instead
+   * @public
+   */
+  TechDocsApi,
+  /**
+   * @deprecated Import from `@backstage/plugin-techdocs-react` instead
+   * @public
+   */
+  TechDocsStorageApi,
+  /**
+   * @deprecated Import from `@backstage/plugin-techdocs-react` instead
+   * @public
+   */
+  TechDocsMetadata,
+  /**
+   * @deprecated Import from `@backstage/plugin-techdocs-react` instead
+   * @public
+   */
+  TechDocsEntityMetadata,
+} from '@backstage/plugin-techdocs-react';
