@@ -23,15 +23,25 @@ import {
   TECHDOCS_ADDONS_WRAPPER_KEY,
   TechDocsReaderPageProvider,
 } from '@backstage/plugin-techdocs-react';
-import { MkDocsReaderContent } from '@backstage/plugin-techdocs-mkdocs-react';
+import { MkDocsReaderPage } from '@backstage/plugin-techdocs-mkdocs-react';
 
 import { TechDocsReaderPageLayout } from '../TechDocsReaderPageLayout';
 import { TechDocsReaderPageRenderFunction } from '../../../types';
 
-const DefaultTechDocsReaderPage = () => (
-  <TechDocsReaderPageLayout>
-    <MkDocsReaderContent />
-  </TechDocsReaderPageLayout>
+type DefaultTechDocsReaderPageProps = {
+  entityRef: CompoundEntityRef;
+};
+
+const DefaultTechDocsReaderPage = ({
+  entityRef,
+}: DefaultTechDocsReaderPageProps) => (
+  <MkDocsReaderPage>
+    {children => (
+      <TechDocsReaderPageProvider entityRef={entityRef}>
+        <TechDocsReaderPageLayout>{children}</TechDocsReaderPageLayout>
+      </TechDocsReaderPageProvider>
+    )}
+  </MkDocsReaderPage>
 );
 
 type Extension = ReactChild & {
@@ -69,9 +79,9 @@ export const TechDocsReaderPage = (props: TechDocsReaderPageProps) => {
     });
 
     return (
-      <TechDocsReaderPageProvider entityRef={entityRef}>
-        {(page as JSX.Element) || <DefaultTechDocsReaderPage />}
-      </TechDocsReaderPageProvider>
+      (page as JSX.Element) || (
+        <DefaultTechDocsReaderPage entityRef={entityRef} />
+      )
     );
   }
 
