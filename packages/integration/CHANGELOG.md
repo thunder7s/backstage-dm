@@ -1,5 +1,13 @@
 # @backstage/integration
 
+## 1.2.3-next.0
+
+### Patch Changes
+
+- 163243a4d1: Handle incorrect return type from Octokit paginate plugin to resolve reading URLs from GitHub
+- c4b460a47d: Avoid double encoding of the file path in `getBitbucketDownloadUrl`
+- 29f782eb37: Updated dependency `@types/luxon` to `^3.0.0`.
+
 ## 1.2.2
 
 ### Patch Changes
